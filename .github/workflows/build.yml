@@ -1,0 +1,25 @@
+name: 'Build API'
+on:
+  [push]
+
+env:
+  NODE_VERSION: '16.x'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@master
+
+    - name: Setup Node ${{ env.NODE_VERSION }} Environment
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: 'Resolve Project Dependencies Using Npm'
+      shell: sh
+      run: |
+        yarn install
+        yarn build

@@ -1,0 +1,11 @@
+
+POST /items HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+    "name" : "adnan",
+    "description": "adno is tizan",
+    "quantity": 3434
+}
+
